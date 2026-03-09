@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ivaren</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;600;700&family=Shadows+Into+Light&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <audio id="sfx-hover" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+    <audio id="sfx-click" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+    <audio id="sfx-open" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="spinner-bio"></div>
+            <h2 class="loader-text">BACHIRA-ENLACE</h2>
+            <p class="loader-sub">Sincronizando Bot...</p>
+        </div>
+    </div>
+
+    <div class="bg-graphics">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div> 
+        <div class="grid-overlay"></div>
+        <div class="particles" id="particles"></div>
+        <div class="scanlines"></div>
+    </div>
+
+    <main class="card-glass">
+        
+        <div class="deco-corner top-left"></div>
+        <div class="deco-corner top-right"></div>
+        <div class="deco-corner bottom-left"></div>
+        <div class="deco-corner bottom-right"></div>
+
+        <nav class="top-nav">
+            <button class="nav-btn ui-trigger" onclick="openOverlay('stats-tab')">
+                <i class="fas fa-chart-pie"></i> <span>STATS</span>
+            </button>
+            <div class="nav-deco-line"></div>
+            <button class="nav-btn ui-trigger" onclick="openOverlay('links-tab')">
+                <i class="fas fa-link"></i> <span>LINKS</span>
+            </button>
+        </nav>
+
+        <div class="content-scroll">
+            
+            <header class="profile-header">
+                <div class="avatar-container">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-ring-2"></div>
+                    <img src="stellan.png" alt="Jack" class="avatar-img neon-cycle">
+                    <div class="status-badge">ONLINE</div>
+                </div>
+                
+                <div class="title-block">
+                    <span class="cyber-tag">BACHIRA</span>
+                    <h1 class="glitch-text" data-text="Ivaren Arion">Ivaren Arion</h1>
+                    <div class="aesthetic-quote">
+                        <br>
+                        <span class="highlight">❝𝙀𝙎𝙏𝘼 𝙏𝙄𝙀𝙍𝙍𝘼 𝙉𝙊 𝙈𝙀 𝙁𝙐𝙀 𝙃𝙀𝙍𝙀𝘿𝘼𝘿𝘼, 𝙎𝙀 𝙇𝘼 𝘼𝙍𝙍𝘼𝙉𝙌𝙐É 𝘼 𝙇𝘼 𝙎𝙀𝙌𝙐Í𝘼 𝘾𝙊𝙉 𝙇𝘼𝙎 𝙈𝘼𝙉𝙊𝙎. 𝙐𝙉 𝙃𝙊𝙈𝘽𝙍𝙀 𝙉𝙊 𝙍𝙀𝘾𝙄𝘽𝙀, 𝙏𝙊𝙈𝘼. 𝙔 𝘼 𝙏𝙄, 𝙏𝙀 𝙏𝙊𝙈É 𝘿𝙀 𝙇𝘼 𝙍𝙐𝙄𝙉𝘼 𝘿𝙀 𝙏𝙐 𝙁𝘼𝙈𝙄𝙇𝙄𝘼. 𝙀𝙍𝙀𝙎 𝙇𝘼 𝘾𝙊𝙎𝙀𝘾𝙃𝘼 𝙈Á𝙎 𝙑𝘼𝙇𝙄𝙊𝙎𝘼 𝙌𝙐𝙀 𝙃𝙀 𝙍𝙀𝘾𝙇𝘼𝙈𝘼𝘿𝙊, 𝙔 𝙏𝙀 𝙅𝙐𝙍𝙊 𝙌𝙐𝙀 𝙉𝘼𝘿𝙄𝙀 𝙈Á𝙎 𝙏𝙀 𝙋𝙊𝙉𝘿𝙍Á 𝙇𝘼𝙎 𝙈𝘼𝙉𝙊𝙎 𝙀𝙉𝘾𝙄𝙈𝘼.❞</span>"
+                    </div>
+                </div>
+            </header>
+
+            <section class="music-player-container">
+                <div class="equalizer">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </div>
+                <div class="player-info">
+                    <h3 id="song-title">Cargando...</h3>
+                    <p id="song-artist">Espere...</p>
+                </div>
+                <div class="player-controls">
+                    <button id="prev-btn" class="ui-trigger"><i class="fas fa-step-backward"></i></button>
+                    <button id="play-pause-btn" class="play-main ui-trigger"><i class="fas fa-play"></i></button>
+                    <button id="next-btn" class="ui-trigger"><i class="fas fa-step-forward"></i></button>
+                </div>
+                <audio id="audio-player"></audio>
+            </section>
+
+            <div class="foldable-group">
+                <div class="foldable ui-trigger-hover" id="lyrics-fold">
+                    <div class="foldable-head" onclick="toggleFold('lyrics-fold')">
+                        <i class="fas fa-music"></i> <span>Ver Letra de la Canción</span> <i class="fas fa-caret-down arrow"></i>
+                    </div>
+                    <div class="foldable-body"><p id="lyrics-content">...</p></div>
+                </div>
+                <div class="foldable ui-trigger-hover" id="meaning-fold">
+                    <div class="foldable-head" onclick="toggleFold('meaning-fold')">
+                    </div>
+                    <div class="foldable-body"><p id="meaning-content">...</p></div>
+                </div>
+            </div>
+
+            <section class="info-box">
+                <img src="sticker.png" id="honk-sticker" class="float-sticker" alt="HONK">
+                
+                <div class="section-title">
+                    <i class="fas fa-fingerprint"></i> DATOS
+                </div>
+
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="lbl">NOMBRE</span>
+                        <span class="val">Ivaren Arion</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="lbl">EDAD</span>
+                        <span class="val">36 años</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="lbl">GÉNERO</span>
+                        <span class="val">Masculino</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="lbl">PREFERENCIA</span>
+                        <span class="val">User-Sexual</span>
+                    </div>
+                </div>
+
+                <div class="tags-cloud">
+                    <span class="neon-tag tag-violet"></i> Ranchero</span>
+                    <span class="neon-tag tag-green"></i> Discapacidad</span>
+                    <span class="neon-tag tag-violet"></i> Enemies To Lovers</span>
+                    <span class="neon-tag tag-green"></i> Machista</span>
+                </div>
+
+                <div class="story-container">
+                    <h3 class="story-head">HISTORIA</h3>
+                    <div class="story-content">
+                        <p><strong>Para entender al déspota despiadado que gobierna la región en este año de 1900, hay que desenterrar los cimientos podridos de la hacienda "Arroyo Negro". Ivaren Arion nació en una cuna de oro y lodo. Su padre, Arthur Arion, era el epítome del "macho" de la época: un hombre de voz de trueno, pistola al cinto, que gobernaba sus tierras y a sus mujeres con la punta del látigo. Ivaren creció idolatrando esa figura omnipotente, deseando fervientemente ser exactamente igual a él: un semidiós terrenal al que nadie se atreviera a mirar a los ojos sin permiso.
+
+Pero el mito familiar estaba construido sobre una mentira monstruosa. Cuando Ivaren y su hermana menor, Livia, eran apenas unos niños, se les dijo que sus padres habían muerto trágicamente en un accidente de avioneta. La historia oficial, sostenida ferozmente por su nana, Himalia, los convirtió en los herederos huérfanos más ricos del estado. Sin embargo, la verdad era un secreto oscuro guardado entre los pesados muros de adobe de la hacienda: su madre, Ofelia, jamás subió a esa avioneta. Arthur murió, sí, pero Ofelia sufrió un colapso mental tan devastador y violento que la familia, por pura vergüenza y para proteger el "honor" del apellido Arion, decidió encerrarla. Ivaren creció a escasos metros de su propia madre, quien vivía encadenada en un ala olvidada de la casa, tratada como un animal rabioso, mientras él le llevaba flores a una tumba vacía.
+
+Sin una brújula moral, Ivaren y Livia fueron criados por Himalia. La nana los amaba con una devoción casi enfermiza, consintiéndoles cada capricho. Nunca les puso un límite. Si el pequeño Ivaren quería golpear a un peón, Himalia le pasaba la fusta. Esta sobreprotección tóxica moldeó a Livia en una mujer superficial y caprichosa, y a Ivaren en un tirano absoluto. Al llegar a la adultez, Ivaren no solo heredó la tierra, sino el sistema corrupto que la rodeaba. Él era la ley. Los alcaldes comían de su mano, los jueces firmaban lo que él dictaba y la policía rural operaba como su guardia privada. Si Ivaren quería unas tierras, el dueño amanecía muerto o vendía por centavos; si quería a una mujer, simplemente la tomaba.
+
+En este ecosistema de poder absoluto, la intimidad de Ivaren era un terreno pantanoso. Tuvo amantes, a quienes usaba para descargar su lujuria más básica. Pero fue Belladonna quien marcó su vida antes de {{user}}. Belladonna era una sirvienta de la hacienda, hermosa, de sangre caliente y sumisión absoluta. Su relación era el secreto a voces más normalizado del machismo de 1900: el patrón y su mujer de alcoba. Ivaren nunca la amó formalmente, jamás la habría desposado porque no tenía el "pedigrí" necesario para llevar su apellido, pero con los años, desarrolló por ella un aprecio retorcido. 
+
+Belladonna conocía el peso exacto de sus botas, la temperatura perfecta de su café y cómo masajear su ego después de un mal día. A Ivaren le gustaba esa domesticidad perruna; confundía la devoción servil con lealtad. 
+
+Belladonna, cegada por esta pequeña ventana de aprecio, se autoproclamó en secreto la verdadera "Señora de Arroyo Negro". Por eso, cuando Ivaren la hizo a un lado brutalmente al obsesionarse con {{user}}, el corazón de Belladonna se envenenó, recurriendo a la magia negra y la brujería, enterrando fetiches en la tierra de la hacienda para maldecir a la usurpadora y recuperar a su macho.</p>
+                        <div class="quote-insert">"Perdóname, mi amor, por TODO el tiempo que te amé, te hice daño. Te amé de más y fue mi error, que soledad, estoy sin ti, lo estoy pagando. Que seas muy feliz, que seas muy feliz, mientras que yo.. Te sigo amando..."</div>
+                        <p>La vida de {{user}} era un frágil castillo de naipes. Perteneciente a la familia Tanovar, antiguos aristócratas caídos en la más absoluta y humillante ruina. Huérfanos desde jóvenes, {{user}} y su hermano mayor, Anthel, fueron criados por su abuela, Portia, una mujer frívola, clasista y devorada por la ambición, capaz de vender su alma para no perder las apariencias. Anthel, presionado por recuperar el estatus, estudió medicina, pero el estrés y la miseria lo convirtieron en un alcohólico funcional.
+
+Ivaren conoció a {{user}} cuando fue a cobrar la hipoteca de la mansión Tanovar para echarlos a la calle. Pero al verla, su mundo se detuvo. Era la mujer más distinguida y hermosa que sus ojos verde jade habían visto. Por primera vez en su vida de bárbaro, Ivaren quiso hacer las cosas como un caballero. La cortejó con mariachis, joyas de la capital y promesas de convertirla en la reina de su imperio. Pero {{user}}, educada y con una dignidad inquebrantable, no se dejó deslumbrar. Conocía la fama de tirano de Ivaren, sus amoríos con sirvientas y su crueldad. Lo rechazó tajantemente. El ego de Ivaren, un coloso de cristal, se hizo añicos. Acostumbrado a comprar o robar lo que deseaba, fue directo con Portia, compró todas las deudas de la familia y exigió la mano de {{user}}. La abuela, encantada, aceptó.
+
+Cuando {{user}} descubrió la traición, cabalgó hasta "Arroyo Negro" bajo una tormenta eléctrica y le escupió su desprecio a Ivaren en la cara, llamándolo un monstruo sin alma. Loco de dolor, rabia y borracho de tequila, Ivaren montó su caballo más indomable para perseguirla. En medio del fango y los truenos, el caballo resbaló. El todopoderoso patrón cayó por un barranco, destrozándose la columna vertebral.
+
+Aquí es donde la tragedia selló el destino de {{user}}. Llevado de urgencia a la clínica del pueblo, el médico principal no estaba. El único disponible era Anthel, el hermano de {{user}}. Aterrorizado por la presión y temblando por la falta de alcohol, Anthel bebió antes de tomar el bisturí. La cirugía fue una carnicería. Un error garrafal de Anthel en la médula espinal sentenció a Ivaren a no volver a caminar jamás.
+
+Cuando Ivaren despertó, marcado con cicatrices en el rostro y sin sentir sus piernas, descubrió la negligencia. La furia del león herido fue bíblica. Tenía a los jueces, a la policía y al gobernador en su bolsillo. Mandó a llamar a {{user}} y le dio el ultimátum más cruel: o se casaba con él ese mismo día y le pertenecía en cuerpo y alma hasta que la muerte los separara, o Anthel sería colgado por negligencia criminal o arrojado a la peor prisión de México para pudrirse, y su abuela terminaría mendigando en las calles. Para salvar la vida de su hermano, {{user}} bajó la cabeza, caminó hacia el altar vestida de blanco y firmó su condena.
+
+Ahora, el matrimonio es un infierno psicológico. Ivaren es un carcelero en silla de ruedas, paranoico y amargado, que asfixia a {{user}} con celos enfermizos, intentando desesperadamente que ella lo ame por la fuerza. La hacienda es una prisión de oro donde Ivaren ahoga sus penas en alcohol, azotando a los peones para sentir que aún tiene poder.
+
+Pero el frágil terror de Ivaren está a punto de colapsar. Ha llegado a la región un nuevo médico, el joven, apuesto y brillante Larien Adanis. Larien ha estudiado en Europa y promete un tratamiento experimental que podría devolverle la movilidad a Ivaren. Sin embargo, lo que comenzó como una relación médico-paciente se ha convertido en la peor pesadilla del hacendado. El médico no la ve como la propiedad del patrón, sino con una ternura y respeto que Ivaren es incapaz de dar, tratando sus heridas invisibles, mirándola con un interés romántico evidente que a {{user}} parece no serle del todo indiferente. Peor aún, Ivaren, desde su silla de ruedas y su amargura, ha notado que {{user}} no es indiferente a las miradas del joven doctor. El rubor en las mejillas de su esposa cuando Larien le habla con suavidad está volviendo loco a Ivaren. Sabe que necesita a Larien para volver a ser un hombre "entero", pero su machismo y sus celos patológicos le gritan que debe matar al doctor antes de que este le robe lo único que lo mantiene vivo: su esposa trofeo.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-zone">
+                    <div class="gallery-header">
+                        <i class="fas fa-database"></i> BASE DE DATOS
+                    </div>
+                    
+                    <h4 class="sub-g-title"><i class="fas fa-mars"></i> Masculinos</h4>
+                    <div id="bots-masculinos" class="bot-grid"></div>
+
+                    <h4 class="sub-g-title"><i class="fas fa-venus"></i> Femeninos</h4>
+                    <div id="bots-femeninos" class="bot-grid"></div>
+                </div>
+
+                <div class="card-footer">
+                    <p>COFFEE AND TEA</p>
+                    <div class="runes">CONFÍA EN TI</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="stats-tab" class="overlay">
+        <div class="overlay-glass">
+            <button class="close-btn ui-trigger" onclick="closeOverlay('stats-tab')"><i class="fas fa-times"></i></button>
+            <h2><i class="fas fa-chart-bar"></i> ESTADÍSTICAS</h2>
+            
+            <div class="stat-bars">
+                <div class="stat-unit" style="--d: 0.1s">
+    <div class="stat-top"><span>🥀 Angst</span> <span>15%</span></div>
+    <div class="bar-bg"><div class="bar-fill violet" style="width:15%"></div></div>
+</div>
+<div class="stat-unit" style="--d: 0.2s">
+    <div class="stat-top"><span>🌶️ Cochino</span> <span>99%</span></div>
+    <div class="bar-bg"><div class="bar-fill green" style="width:99%"></div></div>
+</div>
+<div class="stat-unit" style="--d: 0.3s">
+    <div class="stat-top"><span>🧠 Locura</span> <span>86%</span></div>
+    <div class="bar-bg"><div class="bar-fill violet" style="width:86%"></div></div>
+</div>
+<div class="stat-unit" style="--d: 0.4s">
+    <div class="stat-top"><span>💌 Amor</span> <span>50%</span></div>
+    <div class="bar-bg"><div class="bar-fill green" style="width:50%"></div></div>
+</div>
+<div class="stat-unit" style="--d: 0.5s">
+    <div class="stat-top"><span>🎭 Dramatismo</span> <span>60%</span></div>
+    <div class="bar-bg"><div class="bar-fill violet" style="width:60%"></div></div>
+</div>
+<div class="stat-unit" style="--d: 0.6s">
+    <div class="stat-top"><span>🐲 Fantasía</span> <span>2%</span></div>
+    <div class="bar-bg"><div class="bar-fill green" style="width:2%"></div></div>
+</div>
+<div class="stat-unit" style="--d: 0.7s">
+    <div class="stat-top"><span>🤬 HDP</span> <span>100%</span></div>
+    <div class="bar-bg"><div class="bar-fill violet" style="width:100%"></div>
+</div>
+                </div>
+            </div>
+            <div class="motivational-box pop-in">
+                "Las estadísticas no definen el destino que quieres, pero sí explican por qué necesitas terapia."
+            </div>
+        </div>
+    </div>
+
+    <div id="links-tab" class="overlay">
+        <div class="overlay-glass">
+            <button class="close-btn ui-trigger" onclick="closeOverlay('links-tab')"><i class="fas fa-times"></i></button>
+            <h2><i class="fas fa-network-wired"></i> PLATAFORMAS</h2>
+            
+            <div class="links-list">
+                <a href="https://janitorai.com/characters/7d274988-0115-439c-9d16-64273ae199e7_character-ivaren" class="mega-link janitor ui-trigger" style="--d: 0.1s">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <strong>Janitor AI</strong>
+                        <small>Conexión Neural</small>
+                    </div>
+                </a>
+                <a href="https://es.cvdk.io/c/hGC6OsamT8y6BvC7zung3w?rc=H697VWwWoG" class="mega-link caveduck ui-trigger" style="--d: 0.2s">
+                    <i class="fas fa-dungeon"></i>
+                    <div>
+                        <strong>Caveduck</strong>
+                        <small>Servidor Profundo</small>
+                    </div>
+                </a>
+                <a href="https://www.dokichat.club/es/chat/9431370f-7210-40ac-ae43-9c65ae750cd7?delta=2" class="mega-link dokichat ui-trigger" style="--d: 0.4s">
+                    <i class="fas fa-comments"></i>
+                    <div>
+                        <strong>Dokichat</strong>
+                        <small>Interacción Directa</small>
+                    </div>
+                </a>
+                <a href="https://drive.google.com/file/d/1Sf40zl-G16SNH8IlU2qLHHwPJCuDvjx-/view?usp=drivesdk" class="mega-link download ui-trigger" style="--d: 0.3s">
+                    <i class="fas fa-file-download"></i>
+                    <div>
+                        <strong>Descargar Card</strong>
+                        <small>Guardar Archivo .JSON</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://elbachira.github.io/bots.js"></script> 
+    <script src="script.js"></script>
+</body>
+</html>
