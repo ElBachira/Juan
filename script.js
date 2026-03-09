@@ -41,45 +41,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. SISTEMA DE REPRODUCTOR DE MÚSICA ---
     const songs = [
         {
-            title: "Te Sigo Amando",
-            artist: "Juan Gabriel",
+            title: "Corazón Salvaje",
+            artist: "Manuel Mijares",
             src: "song.mp3", 
-            lyrics: `Que seas muy feliz
-Estés donde estés
-Cariño
-No importa que ya
-No vuelvas jamás
-Conmigo
-Deseo, mi amor
-Que sepas también
-Que te amo
-Que no te olvidé
-Que nunca podré
-Te extraño
-Que seas muy feliz
-Que encuentres amor
-Mi vida
-Que nunca, mi amor
-Te digan adiós
-Un día
-Perdóname, mi amor, por todo el tiempo que te amé, te hice daño
-Te amé de más y fue mi error, qué soledad, estoy sin ti, lo estoy pagando
-Que seas muy feliz
-Que seas muy feliz
-Mientras que yo
-Te sigo amando
-Deseo, mi amor
-Que sepas también
-Que te amo
-Que no te olvidé
-Que nunca podré
-Te extraño
-Perdóname, mi amor, por todo el tiempo que te amé, te hice daño
-Te amé de más y fue mi error, qué soledad, estoy sin ti, lo estoy pagando
-Que seas muy feliz
-Que seas muy feliz
-Mientras que yo
-¡Te sigo amando!`,
+            lyrics: `Y cómo cobrarle a la vida
+Cuando todo te ha salido siempre mal
+Como cerrar tanta heridas
+Si la sangre no ha dejado de brotar
+Cuando el precio de la vida es tan difícil de pagar
+Cómo rogarle al destino
+Cuando estoy acostumbrado a arrebatar
+Porque hoy que te he encontrado
+No te apartes de mi lado
+No derrumben nuestros sueños
+Ni se atreva a separarnos
+Voy a exigirle a la vida
+Que me pague contigo
+Que me enseñe el sentido del dolor
+Porque ya fue suficiente el castigo
+De no haberte conocido
+Y dejar de ser por siempre un mendigo del amor
+Corazón salvaje
+Cómo explicar a los instintos
+Que mi búsqueda contigo terminó
+Que dos caminos tan distintos
+En algún momento el tiempo los unió
+Quien lo dijera entregar la libertad sin condición
+Voy a exigirle a la vida
+Que me pague contigo
+Que me enseñe el sentido del dolor
+Porque ya fue suficiente el castigo
+De no haberte conocido
+Y dejar de ser por siempre un mendigo del amor
+Corazón salvaje`,
         }
     ];
 
